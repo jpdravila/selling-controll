@@ -17,32 +17,37 @@ public class VendasApplication {
     @Bean
     public CommandLineRunner init(@Autowired Clientes clientes){
         return args -> {
-            System.out.println("Salvando clientes...");
-            clientes.salvar(new Cliente("Dougllas"));
-            clientes.salvar(new Cliente("Outro Cliente"));
+            System.out.println("Salvando clientes");
+            clientes.save(new Cliente("Dougllas"));
+            clientes.save(new Cliente("Outro Cliente"));
 
-            List<Cliente> todosClientes = clientes.obterTodos();
+            List<Cliente> todosClientes = clientes.findAll();
             todosClientes.forEach(System.out::println);
 
-            /*System.out.println("Atualizando clientes...");
+            System.out.println("Atualizando clientes");
             todosClientes.forEach(c -> {
-                c.setNome(c.getNome()+ " atualizando...");
-                clientes.atualizar(c);
-            });
-            System.out.println("Buscando clientes...");
-            clientes.buscarPorNome("%Cli%").forEach(System.out::println);
-
-            System.out.println("Deletando clientes...");
-            clientes.obterTodos().forEach(c -> {
-                clientes.deletar(c);
+                c.setNome(c.getNome() + " atualizado.");
+                clientes.save(c);
             });
 
-            todosClientes = clientes.obterTodos();
+            todosClientes = clientes.findAll();
+            todosClientes.forEach(System.out::println);
+
+              System.out.println("Buscando clientes");
+              clientes.findByNomeLike("Cli").forEach(System.out::println);
+
+              System.out.println("deletando clientes");
+              clientes.findAll().forEach(c -> {
+                clientes.delete(c);
+            });
+
+            todosClientes = clientes.findAll();
             if(todosClientes.isEmpty()){
-                System.out.println("Nenhum cliente encontrado...");
-            } else{
-            todosClientes.forEach(System.out::println);}*/
-        };
+                System.out.println("Nenhum cliente encontrado.");
+            }else{
+                todosClientes.forEach(System.out::println);
+            }
+    };
     }
 
     public static void main(String[] args){

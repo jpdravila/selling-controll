@@ -1,4 +1,4 @@
-package io.github.jpdravila.domain.repositorio;
+package io.github.jpdravila.domain.repository;
 
 import io.github.jpdravila.domain.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,9 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface Clientes extends JpaRepository<Cliente, Integer> {
-
-
+public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
     @Query(value = " select c from Cliente c where c.nome like :nome ")
     List<Cliente> encontrarPorNome( @Param("nome") String nome);

@@ -3,7 +3,7 @@ package io.github.jpdravila.domain.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "itm_pedido")
+@Table(name = "item_pedido")
 public class ItemPedido {
 
     @Id

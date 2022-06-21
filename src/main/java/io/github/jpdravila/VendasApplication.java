@@ -11,11 +11,19 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class VendasApplication {
 
+    @Autowired
+    public ClienteRepository clientes;
+
     @Bean
-    public CommandLineRunner execultar(@Autowired ClienteRepository clientes){
+    public CommandLineRunner eecultar(){
         return args -> {
-            Cliente c = new Cliente(null, "Joao Pedro");
-            clientes.save(c);
+          /*  Cliente cli1 = new Cliente(null, "Joao Pedro");
+            Cliente cli2 = new Cliente(null, "José Carlos");
+            Cliente cli3 = new Cliente(null, "Mateus Albulquerque");
+
+            clientes.save(cli1);
+            clientes.save(cli2);
+            clientes.save(cli3);*/
         };
     }
 

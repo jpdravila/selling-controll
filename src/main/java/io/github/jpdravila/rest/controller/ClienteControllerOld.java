@@ -2,11 +2,8 @@ package io.github.jpdravila.rest.controller;
 
 import io.github.jpdravila.domain.entity.Cliente;
 import io.github.jpdravila.domain.repository.ClienteRepository;
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
-public class ClienteController {
+/*@Controller*/
+public class ClienteControllerOld {
 
-    public ClienteRepository clientes;
-    public ClienteController(ClienteRepository clientes){
+    /*public ClienteRepository clientes;
+    public ClienteControllerOld(ClienteRepository clientes){
         this.clientes = clientes;
     }
 
@@ -73,5 +70,5 @@ public class ClienteController {
         Example example = Example.of(filtro, matcher);
         List<Cliente> lista = clientes.findAll(example);
         return ResponseEntity.ok(lista);
-    }
+    }*/
 }

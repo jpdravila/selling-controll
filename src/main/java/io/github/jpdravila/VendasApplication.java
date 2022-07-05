@@ -1,7 +1,6 @@
 package io.github.jpdravila;
 
-import io.github.jpdravila.domain.entity.Cliente;
-import io.github.jpdravila.domain.repository.ClienteRepository;
+import io.github.jpdravila.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

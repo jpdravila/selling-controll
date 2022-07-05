@@ -1,7 +1,7 @@
 package io.github.jpdravila.rest.controller;
 
 import io.github.jpdravila.domain.entity.Cliente;
-import io.github.jpdravila.domain.repository.ClienteRepository;
+import io.github.jpdravila.repository.ClienteRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
@@ -41,7 +41,7 @@ public class ClienteControllerNew {
                         "Cliente não encontrado"));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Cliente update(@PathVariable Integer id,
                           @RequestBody Cliente cliente){

@@ -1,16 +1,5 @@
 package io.github.jpdravila.rest.controller;
 
-import io.github.jpdravila.domain.entity.Cliente;
-import io.github.jpdravila.domain.repository.ClienteRepository;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
-
 /*@Controller*/
 public class ClienteControllerOld {
 

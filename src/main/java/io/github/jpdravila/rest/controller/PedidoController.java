@@ -22,4 +22,8 @@ public class PedidoController {
         return pedido.getId();
     }
 
+    public void testarDevTools(){
+
+    }
+
 }

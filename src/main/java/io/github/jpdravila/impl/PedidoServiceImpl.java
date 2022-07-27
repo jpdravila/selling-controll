@@ -4,6 +4,7 @@ import io.github.jpdravila.domain.entity.Cliente;
 import io.github.jpdravila.domain.entity.ItemPedido;
 import io.github.jpdravila.domain.entity.Pedido;
 import io.github.jpdravila.domain.entity.Produto;
+import io.github.jpdravila.domain.entity.enums.StatusPedido;
 import io.github.jpdravila.exceptions.RegraNegocioException;
 import io.github.jpdravila.repository.ClienteRepository;
 import io.github.jpdravila.repository.ItemPedidoRepository;
@@ -43,6 +44,7 @@ public class PedidoServiceImpl implements PedidoService {
         pedido.setTotal(dto.getTotal());
         pedido.setDataPedido(LocalDate.now());
         pedido.setCliente(cliente);
+        pedido.setStatus(StatusPedido.REALIZADO);
 
         /*Terceiro início*/
         List<ItemPedido> itemPedidos = converterItems(pedido, dto.getItems());

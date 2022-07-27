@@ -2,6 +2,8 @@ package io.github.jpdravila.rest.controller;
 
 import io.github.jpdravila.domain.entity.ItemPedido;
 import io.github.jpdravila.domain.entity.Pedido;
+import io.github.jpdravila.domain.entity.enums.StatusPedido;
+import io.github.jpdravila.rest.dto.AtualizacaoStatusPedidoDTO;
 import io.github.jpdravila.rest.dto.InformacaoItemPedidoDTO;
 import io.github.jpdravila.rest.dto.InformacoesPedidoDTO;
 import io.github.jpdravila.rest.dto.PedidoDTO;
@@ -38,6 +40,13 @@ public class PedidoController {
                 .obterPedidoCompleto(id)
                 .map(p -> converter(p) )
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pedido não encontrado"));
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    private void updateStatus(@PathVariable Integer id, @RequestBody AtualizacaoStatusPedidoDTO dto){
+        String novoStatus = dto.getNovoStatus();
+        service.ataualizaStatus(id, StatusPedido.valueOf(novoStatus));
     }
 
     private InformacoesPedidoDTO converter(Pedido pedido){

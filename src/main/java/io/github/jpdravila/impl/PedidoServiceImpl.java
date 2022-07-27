@@ -5,6 +5,7 @@ import io.github.jpdravila.domain.entity.ItemPedido;
 import io.github.jpdravila.domain.entity.Pedido;
 import io.github.jpdravila.domain.entity.Produto;
 import io.github.jpdravila.domain.entity.enums.StatusPedido;
+import io.github.jpdravila.exceptions.PedidoNaoEncontradoException;
 import io.github.jpdravila.exceptions.RegraNegocioException;
 import io.github.jpdravila.repository.ClienteRepository;
 import io.github.jpdravila.repository.ItemPedidoRepository;
@@ -57,6 +58,17 @@ public class PedidoServiceImpl implements PedidoService {
     @Override
     public Optional<Pedido> obterPedidoCompleto(Integer id) {
         return pedidoRepository.findByIdFetchItens(id);
+    }
+
+    @Override
+    @Transactional
+    public void ataualizaStatus(Integer id, StatusPedido statusPedido) {
+         pedidoRepository.
+                findById(id)
+                .map(pedido ->{
+                    pedido.setStatus((statusPedido));
+                    return pedidoRepository.save(pedido);
+                }).orElseThrow(() -> new PedidoNaoEncontradoException());
     }
 
     /*Novo início*/

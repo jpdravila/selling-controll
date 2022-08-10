@@ -45,7 +45,7 @@ public class ClienteControllerNew {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Cliente update(@PathVariable Integer id,
-                          @RequestBody Cliente cliente){
+                          @RequestBody @Valid Cliente cliente){
 
         return clientes
                 .findById(id).map( clienteExistente -> {

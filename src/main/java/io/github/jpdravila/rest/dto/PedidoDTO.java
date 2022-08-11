@@ -27,7 +27,7 @@ import java.util.List;
 @Data
 public class PedidoDTO {
 
-    @NotNull(message = "Informe o código do cliente")
+    @NotNull(message = "{campo.codigo-cliente.obrigatorio}")
     private Integer cliente;
 
     @NotNull(message = "Campo total do pedido é obrigatório")

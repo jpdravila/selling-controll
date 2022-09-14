@@ -1,5 +1,6 @@
-package io.github.jpdravila;
+package io.github.jpdravila.security.jwt;
 
+import io.github.jpdravila.VendasApplication;
 import io.github.jpdravila.domain.entity.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -14,7 +15,6 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.HashMap;
 
 @Service
 public class JwtService {
